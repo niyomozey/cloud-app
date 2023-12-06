@@ -1,0 +1,35 @@
+<!-- index.html -->
+<html>
+
+<head>
+    <title>Cloud Infrastrcure App</title>
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+</head>
+
+<body class="bg-gray-200 h-screen flex flex-col items-center justify-center">
+    <div class="flex justify-center items-center w-full">
+        <div class="mt-10 flex flex-col justify-center items-center w-[50%]">
+            <h1 class="text-center text-4xl">Final Project App</h1>
+            <a href="/display" class="my-4 text-blue-500 underline">Saved Student</a>
+            <form class="mt-6 gap-4 w-[70%] flex flex-col justify-center items-center" action="/result" method="POST">
+                <div class="flex flex-row justify-center items-center w-[100%] my-2">
+                    <p class="w-[20%] text-[18px]">Name:</p><input class="py-1 w-[80%] rounded-[7px] text-center border-2 border-gray-300" placeholder="Name" type="text" name="name" />
+                </div>
+                <div class="flex flex-row justify-center items-center w-[100%] my-2">
+                    <p class="w-[20%] text-[18px]">AndrewID:</p> <input class="py-1 w-[80%] rounded-[7px] text-center border-2 border-gray-300" placeholder="AndrewID" type="text"
+                        name="andrewID" />
+                </div>
+                <div class="flex flex-row justify-center items-center w-[100%] my-2">
+                    <p class="w-[20%] text-[18px]">Course:</p> <input class="py-1 w-[80%] rounded-[7px] text-center border-2 border-gray-300" placeholder="Course" type="text"
+                        name="course" />
+                </div>
+                <div class="flex flex-row justify-center items-center w-[100%] my-2">
+                    <p class="w-[20%] text-[18px]">Grade:</p> <input class="py-1 w-[80%] rounded-[7px] text-center border-2 border-gray-300" placeholder="Grade" type="text" name="grade" />
+                </div>
+                <input class="border-2 border-gray-300 bg-blue-500 text-white px-4 py-1 rounded-[7px]" type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

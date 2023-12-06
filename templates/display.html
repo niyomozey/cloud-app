@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+</head>
+
+<body class="bg-gray-200 h-screen flex flex-col items-center justify-center">
+
+    <h1 class="text-3xl mb-4">Displaying Saved Data</h1>
+    <a href="/" class="mb-4 text-blue-500 underline">Back Home</a>
+
+    <table class="w-full max-w-screen-md mx-auto bg-white shadow-md rounded-md overflow-hidden">
+        <thead>
+            <tr class="bg-gray-400">
+                <th class="py-2 px-4 border-b">ID</th>
+                <th class="py-2 px-4 border-b">Name</th>
+                <th class="py-2 px-4 border-b">AndrewID</th>
+                <th class="py-2 px-4 border-b">Course</th>
+                <th class="py-2 px-4 border-b">Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data %}
+                {% set row_class = 'bg-gray-100' if loop.index is even else 'bg-white' %}
+                <tr class="{{ row_class }}">
+                    <td class="py-2 px-4 border-b">{{ record.id }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.name }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.andrewid }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.course }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.grade }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
