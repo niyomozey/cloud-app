@@ -1,0 +1,27 @@
+services:
+  app:
+    image: ./
+    ports:
+    - 5000:5000
+    environment:
+      CASSANDRA_HOST: localhost
+    depends_on:
+      - cassandra
+    networks:
+      - group3_network
+  cassandra:
+    image: cassandra:latest
+    ports:
+    - 9042:9042
+    volumes:
+      - todo-cassandra-data:/var/lib/cassandra
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+    networks:
+      - group3_network
+networks:
+  group3_network:
+volumes:
+  todo-cassandra-data:
+
