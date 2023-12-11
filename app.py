@@ -34,7 +34,10 @@ def result():
 
 @app.route('/display')
 def display():
-    data = cassandra_connector.get_all_data() + data_buffer
+    if cassandra_connector.get_all_data() == []:
+        data = data_buffer
+    else:
+        data = cassandra_connector.get_all_data()
     return render_template('display.html', data=data)
 
 # Run the app in debug mode

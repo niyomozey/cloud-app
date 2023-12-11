@@ -1,27 +1,28 @@
+version: '3.8'  # Use the appropriate version for your needs
+
 services:
   app:
-    image: ./
+    build: .
     ports:
-    - 5000:5000
+      - "5000:5000"
     environment:
-      CASSANDRA_HOST: localhost
+      CASSANDRA_HOST: cassandra
     depends_on:
       - cassandra
     networks:
       - group3_network
+
   cassandra:
-    image: cassandra:latest
+    image: cassandra
     ports:
-    - 9042:9042
+      - "9042:9042"
     volumes:
       - todo-cassandra-data:/var/lib/cassandra
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: todos
     networks:
       - group3_network
+
 networks:
   group3_network:
+
 volumes:
   todo-cassandra-data:
-

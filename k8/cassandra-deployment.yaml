@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: cassandra
+spec:
+ selector:
+  matchLabels:
+    app: cassandra
+ template:
+  metadata:
+    labels:
+      app: cassandra
+  spec:
+    containers:
+      - name: cassandra
+        image: oadewusi/cassandra:latest
+        ports:
+          - containerPort: 9042
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 2Gi
+          requests:
+            cpu: 1000m
+            memory: 3Gi

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-app1
+spec:
+  selector:
+    matchLabels:
+      app: final-app1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: final-app1
+    spec:
+      containers:
+        - name: final-app1
+          image: nmoise/final_app:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: CASSANDRA_HOST
+              value: cassandra  # Use the service name of your Cassandra in the same namespace
